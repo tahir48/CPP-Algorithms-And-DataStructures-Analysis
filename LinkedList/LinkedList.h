@@ -5,16 +5,22 @@
 
 class LinkedList {
 public:
-    Node* head;
-    Node* tail;
-    int length;
-
+    
     LinkedList();
-    void print_list();
+    void printList();
     void append(int value);
     void prepend(int value);
     void pop();
-    void pop_first();
+    void popFirst();
+    int getValue(int index);
+    Node* getNode(int index);
+    void remove(int index);
+
+
+private:
+    Node* head;
+    Node* tail;
+    int length;
 };
 
 #endif 

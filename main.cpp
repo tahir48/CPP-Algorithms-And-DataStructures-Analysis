@@ -13,10 +13,13 @@ int main() {
     myList.append(45);
     myList.pop();
     myList.pop();
-    myList.pop_first();
+    myList.popFirst();
+    myList.remove(3);
 
     std::cout << "Here are all the elements of the linkedlist:" << std::endl;
-    myList.print_list();
+    std::cout << "3rd index of the linkedlist is: " << myList.getValue(2) << std::endl;
+
+    myList.printList();
 
     return 0;
 }
