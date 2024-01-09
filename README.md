@@ -21,3 +21,8 @@ This repository contains a C++ implementation of Algortihms and Data structures.
 
 - `remove(int index)`: Removes and deletes the node at the specified index. Throws an exception if the index is out of range.
 
+- `removeByValue(int value)`: Removes the first node that contains the specified value. Throws an exception if the list is empty or the value is not found.
+
+- `setValue(int index, int value)`: Sets the value of the node at the specified index to a new value. Throws an exception if the index is out of range.
+
+- `reverse()`: Reverses the order of the nodes in the list.

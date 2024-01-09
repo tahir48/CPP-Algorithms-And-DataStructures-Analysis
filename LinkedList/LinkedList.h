@@ -15,7 +15,9 @@ public:
     int getValue(int index);
     Node* getNode(int index);
     void remove(int index);
-
+    void removeByValue(int value);
+    void setValue(int index, int value);
+    void reverse();
 
 private:
     Node* head;

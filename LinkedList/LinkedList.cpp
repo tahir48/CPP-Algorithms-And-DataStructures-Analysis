@@ -147,3 +147,63 @@ void LinkedList::remove(int index){ // edge cases: empty list, removing the firs
     length--;
 }
 
+void LinkedList::removeByValue(int value) { // edge cases: empty list, removing the first node, removing the last node, value not exist
+    if (head == nullptr) {
+        throw std::invalid_argument("The list is empty");
+    }
+
+    if (head->value == value) {
+        this->popFirst();
+        return;
+    }
+
+    Node* tmp = head;
+    while (tmp->next != nullptr && tmp->next->value != value) {
+        tmp = tmp->next;
+    }
+
+    if (tmp->next == nullptr) {
+        throw std::invalid_argument("Value not found in the list");
+    }
+
+    Node* nodeToRemove = tmp->next;
+    tmp->next = nodeToRemove->next;
+    
+    if (nodeToRemove == tail) {
+        tail = tmp;
+    }
+
+    delete nodeToRemove;
+    length--;
+}
+
+void LinkedList::setValue(int index, int value){ // edge cases: empty list, index out of bounds
+    if(head == nullptr){
+        throw std::invalid_argument("The list is empty");
+    }
+
+    if(index < 0 || index > length-1){
+        throw std::invalid_argument("Invalid index");
+    }
+    
+    Node* current = this-> getNode(index);
+    current->value = value;
+}
+
+void LinkedList::reverse(){// edge cases: empty list, list contains only one element, 
+    if(head == nullptr || head->next == nullptr){
+            throw std::invalid_argument("The list is empty");
+    }
+
+    Node* before = nullptr;
+    Node* current = head;
+    Node* after = nullptr;
+    tail = head;
+    while(current != nullptr){
+        after = current->next;
+        current->next = before;
+        before = current;
+        current = after;
+    }
+    head = before;
+}
