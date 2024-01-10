@@ -1,30 +1,25 @@
 #include <iostream>
+#include <chrono>
 #include "LinkedList/LinkedList.h"
+#include "TimeComplexityTests/LinkedList/LinkedListTimeComplexity.h"
 
 int main() {
-    LinkedList myList;
+    
+    int sizeX = 100000; 
+    int sizeY = 200000;
 
-    myList.append(10);
-    myList.append(20);
-    myList.append(30);
-    myList.prepend(40);
-    myList.append(35);
-    myList.append(40);
-    myList.append(45);
-    myList.pop();
-    myList.pop();
-    myList.popFirst();
-    //myList.remove(3);
-    // myList.removeByValue(10);
-    // myList.removeByValue(20);
-    // myList.removeByValue(30);
-    // myList.removeByValue(35);
-    myList.reverse();
-
-    std::cout << "Here are all the elements of the linkedlist:" << std::endl;
-    //std::cout << "3rd index of the linkedlist is: " << myList.getValue(2) << std::endl;
-
-    myList.printList();
+    // comparePrintTimes(sizeX, sizeY);
+    compareAppendTimes(sizeX, sizeY);
 
     return 0;
 }
+
+//print method
+// Time taken to print a list of size 10000: 2064.1 ms
+// Time taken to print a list of size 20000: 4031.06 ms
+// Ratio of time taken (Y/X): 1.95294
+
+// append Method
+// Time taken to append a list of size 10000: 0 ms
+// Time taken to append a list of size 20000: 0.999 ms
+// Ratio of time taken (Y/X): inf
