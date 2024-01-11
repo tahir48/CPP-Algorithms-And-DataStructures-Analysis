@@ -207,3 +207,36 @@ void LinkedList::reverse(){// edge cases: empty list, list contains only one ele
     }
     head = before;
 }
+
+
+
+void LinkedList::insert(int index, int value) { // edge cases: list is empty, index out of range, prepending to first node, appending to the last node
+    if (index < 0 || index > length) { // end of the list is also allowed
+        throw std::out_of_range("Index out of bounds");
+    }
+
+    Node* newNode = new Node(value);
+
+    if (index == 0) {
+        newNode->next = head;
+        head = newNode;
+        if (length == 0) {
+            tail = newNode;
+        }
+    } else {
+        Node* current = head;
+
+        for (int i = 0; i < index - 1; ++i) {
+            current = current->next;
+        }
+
+        newNode->next = current->next;
+        current->next = newNode;
+        
+        if (index == length) {
+            tail = newNode;
+        }
+    }
+
+    length++;
+}

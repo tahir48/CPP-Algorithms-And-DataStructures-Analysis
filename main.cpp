@@ -5,21 +5,25 @@
 
 int main() {
     
+    // LinkedList myList;
+    // myList.insert(0,20);
+    // myList.insert(0,10);
+    // myList.insert(2,30);
+
+    // myList.printList();
+
     int sizeX = 100000; 
     int sizeY = 200000;
 
     // comparePrintTimes(sizeX, sizeY);
-    compareAppendTimes(sizeX, sizeY);
+    // compareAppendTimes(sizeX, sizeY);
+    // comparePopTimes(sizeX, sizeY);
+    compareReverseTimes(sizeX, sizeY);
+
+    // compareGetValueTimes(sizeX, sizeY, 0);
+    // compareGetValueTimes(sizeX, sizeY, sizeX / 2);
+    // compareGetValueTimes(sizeX, sizeY, sizeX - 1);  // I doubt this approach. I will reconsider very soon.
+
 
     return 0;
 }
-
-//print method
-// Time taken to print a list of size 10000: 2064.1 ms
-// Time taken to print a list of size 20000: 4031.06 ms
-// Ratio of time taken (Y/X): 1.95294
-
-// append Method
-// Time taken to append a list of size 10000: 0 ms
-// Time taken to append a list of size 20000: 0.999 ms
-// Ratio of time taken (Y/X): inf

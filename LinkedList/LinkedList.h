@@ -18,6 +18,7 @@ public:
     void removeByValue(int value);
     void setValue(int index, int value);
     void reverse();
+    void insert(int index, int value);
 
 private:
     Node* head;

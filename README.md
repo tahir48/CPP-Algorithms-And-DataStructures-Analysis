@@ -34,6 +34,8 @@ In this project, I have conducted an analysis of the time complexity for various
 
 ## Methods Analyzed
 LinkedList::printList(): Measures the time taken to print all elements in the list.
+LinkedList::append(): Measures the time taken to append elements in the list.
+LinkedList::pop(): Measures the time taken to append elements in the list.
 
 
 Analysis Approach
@@ -67,5 +69,44 @@ Ratio of time taken (2000000/1000000): 2.24605
 Observation: Results are interesting, indeed. Since it has a tail, I was expecting appending an element to the tail of the list to take constant time since it is an O(1) operation, regardless of the size of the list (We know that O(1) is the worst-case scenario). However, I am observing a linear growth i.e., O(n). After my searches, I suspect several factors such as system load, inefficiencies in memory allocation (as the list grows larger), or maybe other overheads that occur with larger data sets. I hope to write additional notes here after I do some more search, or maybe try on a different machine.
 
 
+### LinkedList::pop():
+
+Time taken to pop a list of size 10000: 68.563 ms
+Time taken to pop a list of size 20000: 271.784 ms
+Ratio of time taken (20000/10000): 3.964
+
+Time taken to pop a list of size 100000: 6792.8 ms
+Time taken to pop a list of size 200000: 27393.3 ms
+Ratio of time taken (200000/100000): 4.0327
+
+Observation: It is expected poping an element of the list should take linear time since it is an O(n) operation. However, I am observing a non-linear growth i.e., O(n^2). This result is similar to what we faced in the append method. 
+How can I handle this problem? 
+1. Take median of 1000 times running the same test.
+2. Try on different machines, OS, etc. 
+
+### LinkedList::reverse():
+
+
+Time taken to reverse a list of size 100000: 1.007 ms
+Time taken to reverse a list of size 200000: 1.001 ms
+Ratio of time taken (Y/X): 0.994042
+
+Observations: The reverse method is supposed to have O(n) time complexity. Here, despite the large list size, we observed an O(1) increase. I will complete this report after I also tried this method on a different PC and operating system.
+
+### LinkedList::getValue(int index);
+
+Average time taken to get 0 th value from a list of size 10000: 0 ms
+Average time taken to get 0 th value from a list of size 20000: 0 ms
+Ratio of time taken (Y/X): nan
+
+Average time taken to get 5000 th value from a list of size 10000: 0.006032 ms
+Average time taken to get 5000 th value from a list of size 20000: 0.005743 ms
+Ratio of time taken (Y/X): 0.952089
+
+Average time taken to get 9999 th value from a list of size 10000: 0.012034 ms
+Average time taken to get 9999 th value from a list of size 20000: 0.012035 ms
+Ratio of time taken (Y/X): 1.00008
+
+Observations: The getValue method is supposed to have O(n) time complexity. Here, despite the large list size, we observed an O(1) increase. I will complete this report after I also tried this method on a different PC and operating system. Also, I guess I need to reconsider my evaluation metric for methods that take an index as an input.
 
 
