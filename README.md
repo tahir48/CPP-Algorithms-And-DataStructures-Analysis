@@ -2,6 +2,10 @@
 
 This repository contains a C++ implementation of Algortihms and Data structures. So far I have implemented singly linked list. 
 
+## Covered Data Structures
+* LinkedList
+* DoublyLinkedList
+
 ## LinkedList Class Methods - Singly Linked List
 
 - `printList`: Prints the entire list to the console.
@@ -26,7 +30,7 @@ This repository contains a C++ implementation of Algortihms and Data structures.
 
 - `reverse()`: Reverses the order of the nodes in the list.
 
-
+- `insert(int index, int value)`: Inserts a new node with the specified value to the specified index.
 
 
 # Time Complexity Analysis
@@ -36,7 +40,8 @@ In this project, I have conducted an analysis of the time complexity for various
 LinkedList::printList(): Measures the time taken to print all elements in the list.
 LinkedList::append(): Measures the time taken to append elements in the list.
 LinkedList::pop(): Measures the time taken to append elements in the list.
-
+LinkedList::reverse();
+LinkedList::getValue(int index);
 
 Analysis Approach
 To analyze the time complexity, we implemented specific test functions that measure the execution time of each method with varying input sizes. These tests are located in the TimeComplexityTests directory. The key idea is to observe how the execution time changes as the size of the input increases.
@@ -87,11 +92,11 @@ How can I handle this problem?
 ### LinkedList::reverse():
 
 
-Time taken to reverse a list of size 100000: 1.007 ms
-Time taken to reverse a list of size 200000: 1.001 ms
-Ratio of time taken (Y/X): 0.994042
+Time taken to reverse a list of size 100000: 196.913 ms
+Time taken to reverse a list of size 200000: 396.76 ms
+Ratio of time taken (Y/X): 2.0149
 
-Observations: The reverse method is supposed to have O(n) time complexity. Here, despite the large list size, we observed an O(1) increase. I will complete this report after I also tried this method on a different PC and operating system.
+Observations: reverse method has O(1) time complexity, which implies a linear relationship between the input size, and the time taken to execute the algorithm. Accordingly, doubling the input size, doubled the amount of time taken to execute the algortihm. 
 
 ### LinkedList::getValue(int index);
 
@@ -110,3 +115,26 @@ Ratio of time taken (Y/X): 1.00008
 Observations: The getValue method is supposed to have O(n) time complexity. Here, despite the large list size, we observed an O(1) increase. I will complete this report after I also tried this method on a different PC and operating system. Also, I guess I need to reconsider my evaluation metric for methods that take an index as an input.
 
 
+
+
+## Doubly LinkedList Class Methods - Doubly Linked List
+
+- `append(int value)`: Appends a new node with the specified value to the end of the list.
+
+- `printList`: Prints the entire list to the console.
+
+# Time Complexity Analysis
+
+## Methods Analyzed
+DoublyLinkedList::append(int value)
+
+
+## Results and Observations
+### LinkedList::append():
+
+Size 10000 - Average time: 0.394266 ms, Median time: 0 ms
+Size 20000 - Average time: 0.826253 ms, Median time: 1 ms
+Ratio of average time taken (Y/X): 2.09567
+Ratio of median time taken (Y/X): inf
+
+Observations:

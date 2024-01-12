@@ -91,13 +91,17 @@ double measureReverseTime(int listSize){
         myList.append(i);
     }
     
+    const int numRepeats = 1000;
     auto start = std::chrono::high_resolution_clock::now();
-    myList.reverse();
+    for (int i = 0; i < numRepeats; ++i) {
+        myList.reverse();
+    }
     auto end = std::chrono::high_resolution_clock::now();
 
     std::chrono::duration<double, std::milli> duration = end - start;
     return duration.count();
 }
+
 
 
 void compareReverseTimes(int sizeX, int sizeY){
