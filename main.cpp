@@ -9,8 +9,8 @@ void testLinkedList();
 void testDoublyLinkedList();
 
 int main() {
-    
-    testDoublyLinkedList();
+    testLinkedList();
+    //testDoublyLinkedList();
 
 
     return 0;
@@ -28,7 +28,9 @@ void testLinkedList() {
 
     int sizeX = 100000; 
     int sizeY = 200000;
-
+    int numRepeats = 100; 
+    
+    compareAppendTimes(sizeX,sizeY,numRepeats);
     // comparePrintTimes(sizeX, sizeY);
     // compareAppendTimes(sizeX, sizeY);
     // comparePopTimes(sizeX, sizeY);

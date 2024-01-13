@@ -7,7 +7,7 @@
 #include <numeric>    // accumulate
 
 // Append method time complexity tests
-std::pair<double, double> measureAppendTime(int listSize, int numRepeats = 1000) {
+std::pair<double, double> measureAppendTimeForDoubly(int listSize, int numRepeats = 1000) {
     std::vector<double> durations;
     durations.reserve(numRepeats);
 
@@ -36,8 +36,8 @@ std::pair<double, double> measureAppendTime(int listSize, int numRepeats = 1000)
 
 
 void compareDoublyLinkedListAppendTimes(int sizeX, int sizeY) {
-    std::pair<double, double> resultsX = measureAppendTime(sizeX);
-    std::pair<double, double> resultsY = measureAppendTime(sizeY);
+    std::pair<double, double> resultsX = measureAppendTimeForDoubly(sizeX);
+    std::pair<double, double> resultsY = measureAppendTimeForDoubly(sizeY);
 
     double averageX = resultsX.first;
     double medianX = resultsX.second;

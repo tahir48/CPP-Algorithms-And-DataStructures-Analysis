@@ -71,11 +71,22 @@ Time taken to append a list of size 1000000: 36.964 ms
 Time taken to append a list of size 2000000: 83.023 ms
 Ratio of time taken (2000000/1000000): 2.24605
 
+
 Observation: Results are interesting, indeed. Since it has a tail, I was expecting appending an element to the tail of the list to take constant time since it is an O(1) operation, regardless of the size of the list (We know that O(1) is the worst-case scenario). However, I am observing a linear growth i.e., O(n). After my searches, I suspect several factors such as system load, inefficiencies in memory allocation (as the list grows larger), or maybe other overheads that occur with larger data sets. I hope to write additional notes here after I do some more search, or maybe try on a different machine.
 
+I have finally found two of my mistakes. 
+1. Everytime I repeat, it gives different results. Thus, x many calculations must be made and it must be averaged.
+2. I return duration.count() which eventually gives cummulative duration, not for an individual method. So I have to refactor all the methods with this approach.
+
+The correct results are:
+After number of 100 repeats, average time taken for individual append operation to create a list of size 100000: 3.70577e-005 ms
+After number of100 repeats, average time taken for individual append operation to create a list of size 200000: 3.71745e-005 ms
+Ratio of time taken (Y/X): 1.00315
 
 ### LinkedList::pop():
 
+**My First Approach**
+**pop**
 Time taken to pop a list of size 10000: 68.563 ms
 Time taken to pop a list of size 20000: 271.784 ms
 Ratio of time taken (20000/10000): 3.964
@@ -84,13 +95,23 @@ Time taken to pop a list of size 100000: 6792.8 ms
 Time taken to pop a list of size 200000: 27393.3 ms
 Ratio of time taken (200000/100000): 4.0327
 
-Observation: It is expected poping an element of the list should take linear time since it is an O(n) operation. However, I am observing a non-linear growth i.e., O(n^2). This result is similar to what we faced in the append method. 
-How can I handle this problem? 
-1. Take median of 1000 times running the same test.
-2. Try on different machines, OS, etc. 
+**popFirst**
+Time taken to pop a list of size 100000: 1.998 ms
+Time taken to pop a list of size 200000: 4 ms
+Ratio of time taken (Y/X): 2.002
+
+Observation: In the first implementation, I return duration.count() in measurePopTime method. It is expected poping an element of the list should take linear time since it is an O(n) operation. However, I am observing a non-linear growth i.e., O(n^2). Later I understand that I am not calculating individual operation time. returning duration.count()/listSize I can now see correct comparison. Expecting O(n) i.e., linear time complexity for pop method and O(1) i.e., constant time complexity for popFirst method.
+
+**pop**
+Average time taken to pop an individual element of a list of size 100000: 0.067869 ms
+Average time taken to pop an individual element of a list of size 200000: 0.13682 ms
+Ratio of time taken (Y/X): 2.01594
+**popFirst**
+Average time taken to pop an individual element of a list of size 100000: 2e-005 ms
+Average time taken to pop an individual element of a list of size 200000: 2e-005 ms
+Ratio of time taken (Y/X): 1
 
 ### LinkedList::reverse():
-
 
 Time taken to reverse a list of size 100000: 196.913 ms
 Time taken to reverse a list of size 200000: 396.76 ms

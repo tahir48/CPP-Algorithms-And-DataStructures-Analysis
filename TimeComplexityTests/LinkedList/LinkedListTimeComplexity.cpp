@@ -29,30 +29,34 @@ void comparePrintTimes(int sizeX, int sizeY) {
 }
 
 // append method
-double measureAppendTime(int listSize){
+double measureAppendTime(int listSize, int numRepeats) {
+    double totalDuration = 0.0;
 
-    LinkedList myList;
-    auto start = std::chrono::high_resolution_clock::now();
+    for (int repeat = 0; repeat < numRepeats; ++repeat) {
+        LinkedList myList;
 
-    for (int i = 0; i < listSize; ++i) {
-        myList.append(i);
+        auto start = std::chrono::high_resolution_clock::now();
+        for (int i = 0; i < listSize; ++i) {
+            myList.append(i);
+        }
+        auto end = std::chrono::high_resolution_clock::now();
+
+        std::chrono::duration<double, std::milli> duration = end - start;
+        totalDuration += duration.count();
     }
 
-    auto end = std::chrono::high_resolution_clock::now();
-
-    std::chrono::duration<double, std::milli> duration = end-start;
-
-    return duration.count();
+    return (totalDuration / numRepeats) / listSize; 
 }
 
-void compareAppendTimes(int sizeX, int sizeY) {
-    double timeX = measureAppendTime(sizeX);
-    double timeY = measureAppendTime(sizeY);
+void compareAppendTimes(int sizeX, int sizeY, int numRepeats) {
+    double timeX = measureAppendTime(sizeX, numRepeats);
+    double timeY = measureAppendTime(sizeY, numRepeats);
 
-    std::cout << "Time taken to append a list of size " << sizeX << ": " << timeX << " ms" << std::endl;
-    std::cout << "Time taken to append a list of size " << sizeY << ": " << timeY << " ms" << std::endl;
+    std::cout << "After number of " << numRepeats << " repeats, average time taken for individual append operation to create a list of size " << sizeX << ": " << timeX << " ms" << std::endl;
+    std::cout << "After number of" << numRepeats << " repeats, average time taken for individual append operation to create a list of size " << sizeY << ": " << timeY << " ms" << std::endl;
     std::cout << "Ratio of time taken (Y/X): " << timeY / timeX << std::endl;
 }
+
 
 // I pass prepend method since it is similar with append method
 
@@ -66,20 +70,21 @@ double measurePopTime(int listSize){
     auto start = std::chrono::high_resolution_clock::now();
 
     for (int i = listSize - 1; i >= 0; --i) {
-        myList.pop();
+        myList.popFirst();
     }
     auto end = std::chrono::high_resolution_clock::now();
 
     std::chrono::duration<double, std::milli> duration = end-start; 
-    return duration.count();
+    return duration.count()/listSize; //Since it reflects individual operation time for each pop method,
+    // I prefered to divide it by listSize; 
 }
 
 void comparePopTimes(int sizeX, int sizeY){
     double timeX = measurePopTime(sizeX);
     double timeY = measurePopTime(sizeY);
 
-    std::cout << "Time taken to pop a list of size " << sizeX << ": " << timeX << " ms" << std::endl;
-    std::cout << "Time taken to pop a list of size " << sizeY << ": " << timeY << " ms" << std::endl;
+    std::cout << "Average time taken to pop an individual element of a list of size " << sizeX << ": " << timeX << " ms" << std::endl;
+    std::cout << "Average time taken to pop an individual element of a list of size " << sizeY << ": " << timeY << " ms" << std::endl;
     std::cout << "Ratio of time taken (Y/X): " << timeY / timeX << std::endl;
 }
 
