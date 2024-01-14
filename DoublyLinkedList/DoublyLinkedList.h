@@ -3,16 +3,18 @@
 
 #include "../Nodes/DNode.h"
 
-class DoublyLinkedList{
-    public:
-        DoublyLinkedList();
-        void append(int value);
-        void printList();
+namespace DoublyLinkedList {
 
-    private:
-        DNode* head;
-        DNode* tail;
-        int length;
-};
+    class DoublyLinkedList{
+        public:
+            DoublyLinkedList();
+            void append(int value);
+            void printList();
 
+        private:
+            DNode* head;
+            DNode* tail;
+            int length;
+    };
+}
 #endif

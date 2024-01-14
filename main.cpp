@@ -30,13 +30,12 @@ void testLinkedList() {
     int sizeY = 200000;
     int numRepeats = 100; 
     
-    compareAppendTimes(sizeX,sizeY,numRepeats);
     // comparePrintTimes(sizeX, sizeY);
-    // compareAppendTimes(sizeX, sizeY);
-    // comparePopTimes(sizeX, sizeY);
-    //compareReverseTimes(sizeX, sizeY);
+    // compareAppendTimes(sizeX,sizeY,numRepeats);
+    // comparePopTimes(sizeX, sizeY, numRepeats);
+    // compareReverseTimes(sizeX, sizeY, numRepeats);
 
-    // compareGetValueTimes(sizeX, sizeY, 0);
+    LinkedList::compareGetValueTimes(sizeX, sizeY, numRepeats);
     // compareGetValueTimes(sizeX, sizeY, sizeX / 2);
     // compareGetValueTimes(sizeX, sizeY, sizeX - 1);  // I doubt this approach. I will reconsider very soon.}
 }
@@ -56,6 +55,6 @@ void testDoublyLinkedList() {
 
     int sizeX = 10000; 
     int sizeY = 20000;
-    compareDoublyLinkedListAppendTimes(sizeX, sizeY);
+    DoublyLinkedList::compareAppendTimes(sizeX, sizeY);
 }
 

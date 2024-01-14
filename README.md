@@ -59,81 +59,43 @@ Observation: The time taken to print the list scales linearly with the number of
 
 ### LinkedList::append():
 
-Time taken to append a list of size 10000: 0 ms
-Time taken to append a list of size 20000: 0.999 ms
-Ratio of time taken (20000/10000): inf
-
-Time taken to append a list of size 100000: 2.997 ms
-Time taken to append a list of size 200000: 6.527 ms
-Ratio of time taken (200000/100000): 2.17784
-
-Time taken to append a list of size 1000000: 36.964 ms
-Time taken to append a list of size 2000000: 83.023 ms
-Ratio of time taken (2000000/1000000): 2.24605
-
-
-Observation: Results are interesting, indeed. Since it has a tail, I was expecting appending an element to the tail of the list to take constant time since it is an O(1) operation, regardless of the size of the list (We know that O(1) is the worst-case scenario). However, I am observing a linear growth i.e., O(n). After my searches, I suspect several factors such as system load, inefficiencies in memory allocation (as the list grows larger), or maybe other overheads that occur with larger data sets. I hope to write additional notes here after I do some more search, or maybe try on a different machine.
-
-I have finally found two of my mistakes. 
-1. Everytime I repeat, it gives different results. Thus, x many calculations must be made and it must be averaged.
-2. I return duration.count() which eventually gives cummulative duration, not for an individual method. So I have to refactor all the methods with this approach.
-
 The correct results are:
 After number of 100 repeats, average time taken for individual append operation to create a list of size 100000: 3.70577e-005 ms
 After number of100 repeats, average time taken for individual append operation to create a list of size 200000: 3.71745e-005 ms
 Ratio of time taken (Y/X): 1.00315
 
-### LinkedList::pop():
+Observation: Since has a tail, the time taken to append the list constantly scales with the number of elements, suggesting an O(1) time complexity for the append method, regardless of the size of the list. The test is repeated for 100 times, and the average execution time is reported.
 
-**My First Approach**
-**pop**
-Time taken to pop a list of size 10000: 68.563 ms
-Time taken to pop a list of size 20000: 271.784 ms
-Ratio of time taken (20000/10000): 3.964
-
-Time taken to pop a list of size 100000: 6792.8 ms
-Time taken to pop a list of size 200000: 27393.3 ms
-Ratio of time taken (200000/100000): 4.0327
+### LinkedList::pop() and LinkedList::popFirst():
 
 **popFirst**
-Time taken to pop a list of size 100000: 1.998 ms
-Time taken to pop a list of size 200000: 4 ms
-Ratio of time taken (Y/X): 2.002
-
-Observation: In the first implementation, I return duration.count() in measurePopTime method. It is expected poping an element of the list should take linear time since it is an O(n) operation. However, I am observing a non-linear growth i.e., O(n^2). Later I understand that I am not calculating individual operation time. returning duration.count()/listSize I can now see correct comparison. Expecting O(n) i.e., linear time complexity for pop method and O(1) i.e., constant time complexity for popFirst method.
+After number of 100 repeats, average time taken for individual popFirst operation for a list of size 100000: 2.02366e-005 ms
+After number of100 repeats, average time taken for individual popFirst operation for a list of size 200000: 2.02631e-005 ms
+Ratio of time taken (Y/X): 1.00131
 
 **pop**
-Average time taken to pop an individual element of a list of size 100000: 0.067869 ms
-Average time taken to pop an individual element of a list of size 200000: 0.13682 ms
-Ratio of time taken (Y/X): 2.01594
-**popFirst**
-Average time taken to pop an individual element of a list of size 100000: 2e-005 ms
-Average time taken to pop an individual element of a list of size 200000: 2e-005 ms
-Ratio of time taken (Y/X): 1
+After number of 5 repeats, average time taken for individual pop operation for a list of size 100000: 0.0684338 ms
+After number of5 repeats, average time taken for individual pop operation for a list of size 200000: 0.136989 ms
+Ratio of time taken (Y/X): 2.00177
+
+Observation: Expected complexity from popFirst was O(1) and pop was O(n). Based on the results, doubling the input sizes, popFirst method average execution time scaled constantly(O(1)), and pop time scaled linearly (O(n)).
 
 ### LinkedList::reverse():
 
-Time taken to reverse a list of size 100000: 196.913 ms
-Time taken to reverse a list of size 200000: 396.76 ms
-Ratio of time taken (Y/X): 2.0149
+After number of 100 repeats, average time taken for individual reverse operation for a list of size 100000: 0.20046 ms
+After number of 100 repeats, average time taken for individual reverse operation for a list of size 200000: 0.41143 ms
+Ratio of time taken (Y/X): 2.05243
 
 Observations: reverse method has O(1) time complexity, which implies a linear relationship between the input size, and the time taken to execute the algorithm. Accordingly, doubling the input size, doubled the amount of time taken to execute the algortihm. 
 
 ### LinkedList::getValue(int index);
 
-Average time taken to get 0 th value from a list of size 10000: 0 ms
-Average time taken to get 0 th value from a list of size 20000: 0 ms
-Ratio of time taken (Y/X): nan
+After number of 100 repeats, average time taken to get value at index 50000 (middle index) in a list of size 100000: 0.05592 ms
+After number of 100 repeats, average time taken to get value at index 100000 (middle index) in a list of size 200000: 0.11526 ms
+Ratio of time taken (Y/X): 2.06116
 
-Average time taken to get 5000 th value from a list of size 10000: 0.006032 ms
-Average time taken to get 5000 th value from a list of size 20000: 0.005743 ms
-Ratio of time taken (Y/X): 0.952089
+Observation: Expected complexity from getValue was O(n) since it traverse through a list to get a value at a specific index. Doubling the input sizes, getValue method average execution time scaled linearly (O(n)) as expected.
 
-Average time taken to get 9999 th value from a list of size 10000: 0.012034 ms
-Average time taken to get 9999 th value from a list of size 20000: 0.012035 ms
-Ratio of time taken (Y/X): 1.00008
-
-Observations: The getValue method is supposed to have O(n) time complexity. Here, despite the large list size, we observed an O(1) increase. I will complete this report after I also tried this method on a different PC and operating system. Also, I guess I need to reconsider my evaluation metric for methods that take an index as an input.
 
 
 
@@ -151,7 +113,7 @@ DoublyLinkedList::append(int value)
 
 
 ## Results and Observations
-### LinkedList::append():
+### DoublyLinkedList::append():
 
 Size 10000 - Average time: 0.394266 ms, Median time: 0 ms
 Size 20000 - Average time: 0.826253 ms, Median time: 1 ms
