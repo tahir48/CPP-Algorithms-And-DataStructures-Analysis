@@ -106,18 +106,57 @@ Observation: Expected complexity from getValue was O(n) since it traverse throug
 
 - `printList`: Prints the entire list to the console.
 
+- `prepend(int value)`: Prepends a new node with the specified value to the beginning of the list.
+
+- `pop`: Removes and deletes the last node from the list.
+
+- `popFirst`: Removes and deletes the first node from the list.
+
 # Time Complexity Analysis
 
 ## Methods Analyzed
 DoublyLinkedList::append(int value)
+DoublyLinkedList::prepend(int value)
+DoublyLinkedList::pop()
+DoublyLinkedList::popFirst()
 
 
 ## Results and Observations
 ### DoublyLinkedList::append():
 
+After 101 repeats
 Size 10000 - Average time: 0.394266 ms, Median time: 0 ms
 Size 20000 - Average time: 0.826253 ms, Median time: 1 ms
 Ratio of average time taken (Y/X): 2.09567
 Ratio of median time taken (Y/X): inf
 
 Observations:
+
+### DoublyLinkedList::prepend():
+
+After 101 repeats
+Size 10000 - Average time: 3.6298e-005 ms, Median time: 0 ms
+Size 20000 - Average time: 3.75757e-005 ms, Median time: 1 ms
+Ratio of average time taken (Y/X): 1.0352
+Ratio of median time taken (Y/X): inf
+
+Observations:
+
+### DoublyLinkedList::pop():
+
+
+Size 10000 - Average time: 2.99426e-005 ms, Median time: 0 ms
+Size 20000 - Average time: 2.95866e-005 ms, Median time: 0.998 ms
+Ratio of average time taken (Y/X): 0.988113
+Ratio of median time taken (Y/X): inf
+
+Observations:
+
+
+### DoublyLinkedList::popFirst():
+
+After 101 repeats
+Size 10000 - Average time: 2.18386e-005 ms, Median time: 0 ms
+Size 20000 - Average time: 2.18995e-005 ms, Median time: 0 ms
+Ratio of average time taken (Y/X): 1.00279
+Ratio of median time taken (Y/X): nan

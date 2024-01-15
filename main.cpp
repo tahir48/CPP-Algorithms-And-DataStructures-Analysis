@@ -9,8 +9,8 @@ void testLinkedList();
 void testDoublyLinkedList();
 
 int main() {
-    testLinkedList();
-    //testDoublyLinkedList();
+    //testLinkedList();
+    testDoublyLinkedList();
 
 
     return 0;
@@ -41,20 +41,29 @@ void testLinkedList() {
 }
 
 void testDoublyLinkedList() {
-    // DoublyLinkedList myList;
+    // DoublyLinkedList::DoublyLinkedList myList;
 
     // myList.append(10);
     // myList.append(20);
     // myList.append(30);
     // myList.append(40);
     // myList.append(50);
+    // myList.prepend(10);
+
+    // myList.printList();
+
+    // myList.pop();
+    // myList.popFirst();
 
     // myList.printList();
 
 
-
+    int numRepeats = 101; 
     int sizeX = 10000; 
     int sizeY = 20000;
-    DoublyLinkedList::compareAppendTimes(sizeX, sizeY);
+    // DoublyLinkedList::compareAppendTimes(sizeX, sizeY, numRepeats);
+    // DoublyLinkedList::comparePrependTimes(sizeX, sizeY, numRepeats);
+    DoublyLinkedList::comparePopTimes(sizeX, sizeY, numRepeats);
+
 }
 

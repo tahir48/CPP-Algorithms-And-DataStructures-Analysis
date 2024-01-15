@@ -10,7 +10,9 @@ namespace DoublyLinkedList {
             DoublyLinkedList();
             void append(int value);
             void printList();
-
+            void prepend(int value);
+            void pop();
+            void popFirst();
         private:
             DNode* head;
             DNode* tail;
