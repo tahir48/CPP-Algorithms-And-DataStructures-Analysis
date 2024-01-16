@@ -99,6 +99,20 @@ namespace LinkedList {
         return tmp->value;
     }
 
+    // int LinkedList::getValue(int index) {
+    //     if (head == nullptr || index < 0 || index >= length) {
+    //         return -1;
+    //     }
+
+    //     Node* tmp = head;
+    //     for (int i = 0; i < index; ++i) {
+    //         tmp = tmp->next;
+    //     }
+
+    //     return tmp->value;
+    // }
+    // A more efficient version which avoids unnecessary traversal if out of bounds.
+
 
     Node* LinkedList::getNode(int index){ // Edge cases: empty list, negative index input, index out of bound.
         if (head == nullptr || index < 0) {

@@ -13,6 +13,11 @@ namespace DoublyLinkedList {
             void prepend(int value);
             void pop();
             void popFirst();
+            int getValue(int index);
+            DNode* getNode(int index);
+            void remove(int index);
+            void removeByValue(int value);
+
         private:
             DNode* head;
             DNode* tail;
