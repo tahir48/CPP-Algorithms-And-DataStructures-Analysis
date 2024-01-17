@@ -160,3 +160,23 @@ Size 10000 - Average time: 2.18386e-005 ms, Median time: 0 ms
 Size 20000 - Average time: 2.18995e-005 ms, Median time: 0 ms
 Ratio of average time taken (Y/X): 1.00279
 Ratio of median time taken (Y/X): nan
+
+
+### DoublyLinkedList::getValue(int index):
+
+
+After 101 repeats
+Size 10000 - Average time: 0.00986139 ms, Median time: 0 ms
+Size 20000 - Average time: 0.00993069 ms, Median time: 0 ms
+Ratio of average time taken (Y/X): 1.00703
+Ratio of median time taken (Y/X): nan
+
+
+### DoublyLinkedList::remove(int index):
+
+
+After 101 repeats
+Size 10000 - Average time: 0.00989109 ms, Median time: 0 ms
+Size 20000 - Average time: 0.00990099 ms, Median time: 0 ms
+Ratio of average time taken (Y/X): 1.001
+Ratio of median time taken (Y/X): nan

@@ -7,6 +7,8 @@ namespace DoublyLinkedList {
     void comparePrependTimes(int sizeX, int sizeY, int numRepeats);
     void comparePopTimes(int sizeX, int sizeY, int numRepeats);
     void comparePopFirstTimes(int sizeX, int sizeY, int numRepeats);
+    void compareGetValueTimes(int sizeX, int sizeY, int numRepeats);
+    void compareRemoveTimes(int sizeX, int sizeY, int numRepeats);
 
 
 }

@@ -42,32 +42,33 @@ void testLinkedList() {
 
 void testDoublyLinkedList() {
 
-    DoublyLinkedList::DoublyLinkedList myList;
+    // DoublyLinkedList::DoublyLinkedList myList;
 
-    myList.append(10);
-    myList.append(20);
-    myList.append(30);
-    myList.append(40);
-    myList.append(50);
-    myList.append(60);
-    myList.append(70);
-    myList.removeByValue(10);
-    myList.removeByValue(70);
+    // myList.append(10);
+    // myList.append(20);
+    // myList.append(30);
+    // myList.append(40);
+    // myList.append(50);
+    // myList.append(60);
+    // myList.append(70);
+    // myList.removeByValue(10);
+    // myList.removeByValue(70);
+
+    // // myList.printList();
+    // //std::cout << myList.getValue(4) << std::endl;
+    // // myList.pop();
+    // // myList.popFirst();
 
     // myList.printList();
-    //std::cout << myList.getValue(4) << std::endl;
-    // myList.pop();
-    // myList.popFirst();
-
-    myList.printList();
 
 
-    // int numRepeats = 101; 
-    // int sizeX = 10000; 
-    // int sizeY = 20000;
+    int numRepeats = 101; 
+    int sizeX = 10000; 
+    int sizeY = 20000;
     // DoublyLinkedList::compareAppendTimes(sizeX, sizeY, numRepeats);
     // DoublyLinkedList::comparePrependTimes(sizeX, sizeY, numRepeats);
     //DoublyLinkedList::comparePopTimes(sizeX, sizeY, numRepeats);
-
+    //DoublyLinkedList::compareGetValueTimes(sizeX, sizeY, numRepeats);
+    DoublyLinkedList::compareRemoveTimes(sizeX, sizeY, numRepeats);
 }
 
